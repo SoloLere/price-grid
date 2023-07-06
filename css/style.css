@@ -1,0 +1,130 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+:root {
+  --padding: 2rem;
+}
+@media screen and (min-width: 43.75em) {
+  :root {
+    --padding: 4rem;
+  }
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body {
+  font-family: "Karla", sans-serif;
+  font-size: 1.6rem;
+  background-color: #e5eff5;
+}
+h1,
+h2 {
+  font-weight: 700;
+}
+h2 {
+  font-size: 2rem;
+}
+.bright {
+  color: #c0df34;
+}
+.fade {
+  opacity: 0.5;
+}
+.container {
+  margin-inline: auto;
+  padding-block: 3rem;
+  width: calc(min(90vw, 70rem));
+  min-height: 95vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.price_grid {
+  box-shadow: 0 1rem 2rem rgba(152, 166, 189, 0.9);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.community {
+  width: 100%;
+  background-color: #fff;
+  color: #98a6bd;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: var(--padding);
+}
+.community__header {
+  color: #2ab2af;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+.subscription {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "one"
+    "two";
+  color: #e5eff5;
+  overflow: hidden;
+}
+@media screen and (min-width: 43.75em) {
+  .subscription {
+    grid-template-areas: "one two";
+  }
+}
+.payment {
+  grid-area: one;
+  background-color: #2ab2af;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: var(--padding);
+}
+.payment__pricing {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.payment__price {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+.payment__btn {
+  width: calc(min(25rem, 90%));
+  align-self: start;
+  padding: 1.25rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: #c0df34;
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 700;
+  transition: all 0.2s;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+.payment__btn:hover {
+  opacity: 0.9;
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.payment__btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 0.7rem rgba(0, 0, 0, 0.3);
+}
+.why-us {
+  grid-area: two;
+  background-color: rgba(42, 178, 175, 0.7);
+  padding: var(--padding);
+}
+.why-us ul {
+  list-style: none;
+  margin-top: 2rem;
+}

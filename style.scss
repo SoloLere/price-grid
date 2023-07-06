@@ -1,0 +1,178 @@
+/*================================================
+    VARIABLES
+  ================================================
+*/
+
+$color-cyan: hsl(179, 62%, 43%);
+$color-yellow-bright: hsl(71, 73%, 54%);
+$color-gray-light: hsl(204, 43%, 93%);
+$color-gray-blue: hsl(218, 22%, 67%);
+
+// PADDING
+$padding_small: 2rem;
+$padding_large: 4rem;
+
+
+// BREAKPOINTS
+$bp-large: 43.75em;
+
+
+/*================================================
+BASE STYLES
+================================================
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --padding: #{$padding_small};
+  
+  @media screen and (min-width: $bp-large) {
+    --padding: #{$padding_large};
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  font-size: 1.6rem;
+  background-color: $color-gray-light;
+}
+
+h1,h2 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.bright {
+  color: $color-yellow-bright;
+}
+
+.fade {
+  opacity: 0.5;
+}
+
+/*================================================
+    GENERAL STYLES
+  ================================================
+*/
+
+.container {
+  margin-inline: auto;
+  padding-block: 3rem;
+  width: calc(min(90vw, 70rem));
+  min-height: 95vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.price_grid {
+  box-shadow:  0 1rem 2rem rgba($color-gray-blue, 0.9);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.community {
+  width: 100%;
+  background-color: #fff;
+  color: $color-gray-blue;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: var(--padding);
+
+  &__header {
+    color: $color-cyan;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+}
+
+.subscription {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "one"
+    "two";
+
+  color: $color-gray-light;
+  overflow: hidden;
+
+  @media screen and (min-width: $bp-large) {
+    grid-template-areas:
+    "one two";
+  }
+}
+
+.payment {
+  grid-area: one;
+  background-color: $color-cyan;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: var(--padding);
+
+  &__pricing {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__price {
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+
+  &__btn {
+    width: calc(min(25rem, 90%));
+    align-self: start;
+    padding: 1.25rem 2rem;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    background-color: $color-yellow-bright;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-family: inherit;
+    font-weight: 700;
+    transition: all 0.2s;
+    box-shadow: 0 1rem 1rem rgba(#000, 0.2);
+
+
+    &:hover {
+      opacity: .9;
+      transform: translateY(-0.3rem);
+      box-shadow: 0 1rem 2rem rgba(#000, 0.2);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 0.7rem rgba(#000, 0.3); /* decrement blurry in the same proportion as Y to get the best effects*/
+    }
+  }
+}
+
+.why-us {
+  grid-area: two;
+  background-color: rgba($color-cyan,0.7);
+  padding: var(--padding);
+
+  & ul {
+    list-style: none;
+    margin-top: 2rem;
+  }
+}
